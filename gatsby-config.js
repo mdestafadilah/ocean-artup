@@ -28,6 +28,8 @@ module.exports = {
             },
           },
           `gatsby-remark-smartypants`,
+          `gatsby-remark-embed-video`,
+          `gatsby-remark-responsive-iframe`,
         ],
       },
     },
@@ -36,7 +38,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: '***************',
+        trackingId: 'UA-103132763-3',
       },
     },
     `gatsby-plugin-offline`,
