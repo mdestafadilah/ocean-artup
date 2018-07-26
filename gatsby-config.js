@@ -3,7 +3,7 @@ module.exports = {
     title: `Ocean artUp`,
     description: `ERC research project investigating articificial upwelling`,
     author: `Janosh Riebesell`,
-    siteUrl: `https://www.ocean-artup.eu`,
+    siteUrl: `https://ocean-artup.eu`,
   },
   plugins: [
     {
