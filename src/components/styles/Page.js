@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 
-import Team from './Team'
-import ImageRow from './ImageRow'
 import mediaQuery from '../../utils/mediaQuery'
 
-export const PageBody = styled.article`
+const Page = styled.article`
   background: ${props => props.theme.mainWhite};
   padding: 10vw;
   ${mediaQuery.minPhablet} {
@@ -32,8 +30,6 @@ export const PageBody = styled.article`
     margin-top: -1.5rem;
     margin-bottom: 1rem;
   }
-  ${Team}
-  ${ImageRow}
 `
 
-export default PageBody
+export default Page
