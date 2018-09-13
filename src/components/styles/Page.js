@@ -3,32 +3,20 @@ import styled from 'styled-components'
 import mediaQuery from '../../utils/mediaQuery'
 
 const Page = styled.article`
-  background: ${props => props.theme.mainWhite};
-  padding: 10vw;
+  grid-column: 3;
+  margin: 9vh 0;
   ${mediaQuery.minPhablet} {
     text-align: justify;
-  }
-  > * {
-    max-width: ${props => props.theme.maxWidth};
-    margin-left: auto;
-    margin-right: auto;
-  }
-  a {
-    color: ${props => props.theme.mainBlue};
-    :hover {
-      color: ${props => props.theme.mainOrange};
-    }
   }
   img {
     width: 100%;
   }
   .caption {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.9em;
     text-align: center;
     font-style: italic;
-    margin-top: -1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
 `
 
