@@ -12,12 +12,12 @@ import Scroll from '../Scroll'
 
 import { Root, GlobalStyle } from './styles'
 
-const Layout = ({ children, site, path, ...rest }) => (
+const Global = ({ children, site, path, bg = true, ...rest }) => (
   <ThemeProvider theme={theme}>
     <Root>
       <Helmet site={site.meta} path={path} {...rest} />
       <GlobalStyle />
-      <Background path={path} />
+      {bg && <Background path={path} />}
       <Header site={site.meta} />
       {children}
       <Footer />
@@ -26,7 +26,7 @@ const Layout = ({ children, site, path, ...rest }) => (
   </ThemeProvider>
 )
 
-Layout.propTypes = {
+Global.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
@@ -43,5 +43,5 @@ const query = graphql`
 `
 
 export default props => (
-  <StaticQuery query={query} render={data => <Layout {...data} {...props} />} />
+  <StaticQuery query={query} render={data => <Global {...data} {...props} />} />
 )
