@@ -1,3 +1,7 @@
+const queries = require('./src/utils/algolia')
+
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Ocean artUp`,
@@ -23,7 +27,6 @@ module.exports = {
             options: {
               maxWidth: 2000,
               linkImagesToOriginal: false,
-              wrapperStyle: `max-width: none !important;`,
             },
           },
           `gatsby-remark-smartypants`,
@@ -38,6 +41,15 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-122970164-2',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.algoliaAppId,
+        apiKey: process.env.algoliaApiKey,
+        queries,
+        chunkSize: 10000, // default: 1000
       },
     },
     `gatsby-plugin-offline`,
