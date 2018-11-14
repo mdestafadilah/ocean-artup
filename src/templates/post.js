@@ -6,10 +6,15 @@ import PostTitle from '../components/PostTitle'
 import PageBody from '../components/PageBody'
 
 const PostTemplate = ({ data: { post }, location }) => {
-  const { title, body } = post
+  const { title, body, featuredImage } = post
   const { htmlAst, excerpt } = body.data
   return (
-    <Global pageTitle={title} path={location.pathname} description={excerpt}>
+    <Global
+      pageTitle={title}
+      path={location.pathname}
+      description={excerpt}
+      hero={featuredImage}
+    >
       <PostTitle post={post} />
       <PageBody htmlAst={htmlAst} />
     </Global>
@@ -35,12 +40,18 @@ export const query = graphql`
       title
       slug
     }
-    date(formatString: "MMMM DD, YYYY")
+    date(formatString: "MMM D, YYYY")
     body {
       data: childMarkdownRemark {
         htmlAst
         timeToRead
-        excerpt(pruneLength: 250)
+        excerpt
+      }
+    }
+    featuredImage {
+      title
+      fluid(quality: 100, maxWidth: 2400) {
+        ...GatsbyContentfulFluid_withWebp
       }
     }
   }

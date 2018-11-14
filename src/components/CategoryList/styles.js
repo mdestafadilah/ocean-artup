@@ -4,13 +4,9 @@ import { Link } from 'gatsby'
 import mediaQuery from '../../utils/mediaQuery'
 
 export const Container = styled.div`
-  grid-column: 3;
-  grid-row: 3;
-  margin-bottom: 5vh;
-  ${mediaQuery.minTablet} {
-    grid-column: 4;
-    grid-row: 3;
-  }
+  grid-column: 2 / -2;
+  text-align: center;
+  margin-top: 1em;
 `
 
 export const CategoryIcon = styled.img`
@@ -27,12 +23,17 @@ export const CategoryLink = styled(Link)`
   display: flex;
   align-items: center;
   &.${props => props.activeClassName} {
-    color: ${props => props.theme.lightBlue};
+    color: ${props => props.theme.mainOrange};
   }
 `
 
 export const List = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
   grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  justify-content: center;
+  ${mediaQuery.minPhablet} {
+    grid-auto-flow: column;
+    grid-template-columns: initial;
+  }
 `
