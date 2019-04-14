@@ -26,6 +26,11 @@ module.exports = {
             options: {
               maxWidth: 2500,
               linkImagesToOriginal: false,
+              withWebp: true,
+              wrapperStyle: `
+                border-radius: 0.5em;
+                overflow: hidden;
+              `,
             },
           },
           `gatsby-remark-embed-video`,
@@ -42,7 +47,6 @@ module.exports = {
         trackingId: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -55,5 +59,8 @@ module.exports = {
         chunkSize: 10000, // default: 1000
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
   ],
 }
